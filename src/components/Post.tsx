@@ -1,10 +1,17 @@
 import React from "react";
-import { BsPatchCheckFill } from "react-icons/bs";
+import {
+  BsPatchCheckFill,
+  BsChat,
+  BsArrowRepeat,
+  BsHeart,
+  BsUpload,
+} from "react-icons/bs";
+import "../App.css";
 
 interface IProps {
   avatar: string;
   displayName: string;
-  blue: boolean;
+  blue?: boolean;
   username: string;
   text: string;
   image?: string;
@@ -21,7 +28,15 @@ function Post(props: IProps) {
           <h4 className="post__username">@{props.username}</h4>
         </div>
         <p className="post__text">{props.text}</p>
-        {props.image && <img src={props.image} alt="" className="post__img" />}
+        {props.image && (
+          <img src={props.image} alt="" className="post__image" />
+        )}
+        <div className="post__icons">
+          <BsChat className="post__icon" />
+          <BsArrowRepeat className="post__icon" />
+          <BsHeart className="post__icon" />
+          <BsUpload className="post__icon" />
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import { IconType } from "react-icons/lib";
+import "../App.css";
 
 interface IProps {
   current?: boolean;
