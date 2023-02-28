@@ -392,3 +392,18 @@ body {
   font-size: 16px;
   letter-spacing: 0.02em;
 }
+
+.widgets__box {
+  margin-top: 16px;
+  padding: 0 16px;
+  background-color: #f7f9f9;
+  border: 1px solid #f7f9f9;
+  border-radius: 16px;
+}
+
+.widgets__title {
+  padding: 10px 0;
+  color: var(--black);
+  font-size: 22px;
+  font-weight: 700;
+}

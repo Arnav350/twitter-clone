@@ -13,6 +13,12 @@ function Widgets() {
           className="widgets__input"
         />
       </div>
+      <div className="widgets__box">
+        <h1 className="widgets__title">What's happening</h1>
+      </div>
+      <div className="widgets__box">
+        <h1 className="widgets__title">Who to follow</h1>
+      </div>
     </div>
   );
 }
