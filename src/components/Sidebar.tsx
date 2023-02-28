@@ -22,7 +22,9 @@ import "../App.css";
 function Sidebar() {
   return (
     <div className="sidebar">
-      <BsTwitter className="sidebar__logo" />
+      <div className="sidebar__logo">
+        <BsTwitter className="sidebar__twitter" />
+      </div>
       <nav className="sidebar__nav">
         <SidebarBox
           current

@@ -59,7 +59,7 @@ function Main() {
         blue
         username="TechCrunch"
         text="Lorem ipsum dolor sit amet consectetur adipisicing elit. lelellelelelel l lalladlsalladlasdlsaldlsa"
-        image="https://picsum.photos/200/300"
+        // image="https://picsum.photos/200/300"
       />
     </div>
   );

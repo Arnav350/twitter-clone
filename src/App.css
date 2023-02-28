@@ -20,14 +20,17 @@ body {
 
 :root {
   --blue: #1d9bf0;
+  --blue-a: #1d9bf01a;
   --black: #0f1419;
-  --gray: #eff3f4;
+  --black-a: #0f14191a;
+  --gray: #536471;
+  --border: #eff3f4;
 }
 
 .app {
   display: flex;
   max-height: 100vh;
-  max-width: 1276px;
+  max-width: 1278px;
   margin: 0 auto;
   padding: 0 10px;
 }
@@ -37,25 +40,34 @@ body {
 .sidebar {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
 }
 
 .sidebar__logo {
-  margin-top: 1.7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px 0;
+  height: 52px;
+  width: 52px;
+  border-radius: 50%;
+  transition: background-color 200ms;
+}
+
+.sidebar__twitter {
   height: 50.4px;
   width: 50.4px;
   padding: 11px;
   color: var(--blue);
+  cursor: pointer;
 }
 
 .sidebar__logo:hover {
-  background-color: #1d9bf01a;
-  border-radius: 50%;
+  background-color: var(--blue-a);
 }
 
 .sidebar__nav {
-  margin-top: 6px;
-  width: 262px;
+  margin-top: 4px;
+  width: 263px;
 }
 
 /* sidebarbox */
@@ -70,11 +82,11 @@ body {
   display: flex;
   align-items: center;
   border-radius: 52.25px;
-  transition: background-color 100ms;
+  transition: background-color 200ms;
 }
 
 .sidebar__box:hover .sidebar__link {
-  background-color: #0f14191a;
+  background-color: var(--black-a);
 }
 
 .sidebar__icon {
@@ -115,8 +127,8 @@ body {
 /* main */
 
 .main {
-  border-left: 1px solid var(--gray);
-  border-right: 1px solid var(--gray);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -130,7 +142,7 @@ body {
   position: sticky;
   top: 0;
   background-color: #ffffffd9;
-  border-bottom: 1px solid var(--gray);
+  border-bottom: 1px solid var(--border);
   backdrop-filter: blur(12px);
 }
 
@@ -171,13 +183,13 @@ body {
 }
 
 .main__option:hover {
-  background-color: #0f14191a;
+  background-color: var(--black-a);
 }
 
 .main__box {
   height: 119.2px;
   padding: 8px 16px 8px 16px;
-  border-bottom: 1px solid var(--gray);
+  border-bottom: 1px solid var(--border);
 }
 
 .main__personal {
@@ -207,6 +219,7 @@ body {
 
 .main__links {
   display: flex;
+  padding-bottom: 1px;
 }
 
 .main__link {
@@ -224,8 +237,8 @@ body {
 }
 
 .main__tweet {
-  margin-right: 2px;
-  padding: 7px 16px;
+  margin: 0 2px 0.2px 0;
+  padding: 6px 17px 8.4px 16px;
   background-color: var(--blue);
   border: 0.8px solid transparent;
   border-radius: 37.2px;
@@ -241,6 +254,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
   cursor: pointer;
 }
 
@@ -272,7 +286,7 @@ body {
   letter-spacing: 0.02em;
 }
 
-.post__blue {
+.post__verified {
   margin: 2px 0 0 2px;
   padding: 1.375px;
   height: 18.75px;
@@ -283,7 +297,7 @@ body {
 
 .post__username {
   padding-left: 4px;
-  color: #536471;
+  color: var(--gray);
   font-weight: 400;
 }
 
@@ -307,8 +321,74 @@ body {
   max-width: 425px;
 }
 
+.post__blue,
+.post__green,
+.post__red {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34.75px;
+  width: 34.75px;
+  border-radius: 50%;
+  transition: background-color 200ms;
+}
+
+.post__blue:hover {
+  background-color: var(--blue-a);
+}
+
+.post__green:hover {
+  background-color: #00ba7c1a;
+}
+
+.post__red:hover {
+  background-color: #f918801a;
+}
+
 .post__icon {
-  color: #536471;
+  color: var(--gray);
+  transition: color 200ms;
+}
+
+.post__blue:hover .post__icon {
+  color: var(--blue);
+}
+
+.post__green:hover .post__icon {
+  color: #00ba7c;
+}
+
+.post__red:hover .post__icon {
+  color: #f91880;
 }
 
 /* widgets */
+
+.widgets {
+  margin-left: 30px;
+  width: 350px;
+}
+
+.widgets__search {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  padding: 0 0 0.8px 21px;
+  height: 44px;
+  width: 350px;
+  background-color: #eff3f4;
+  border-radius: 21.2px;
+}
+
+.widgets__icon {
+  color: var(--gray);
+}
+
+.widgets__input {
+  padding: 0 0 0.8px 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}

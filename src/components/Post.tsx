@@ -24,7 +24,7 @@ function Post(props: IProps) {
       <div className="post__body">
         <div className="post__user">
           <h3 className="post__display-name">{props.displayName}</h3>
-          {props.blue && <BsPatchCheckFill className="post__blue" />}
+          {props.blue && <BsPatchCheckFill className="post__verified" />}
           <h4 className="post__username">@{props.username}</h4>
         </div>
         <p className="post__text">{props.text}</p>
@@ -32,10 +32,18 @@ function Post(props: IProps) {
           <img src={props.image} alt="" className="post__image" />
         )}
         <div className="post__icons">
-          <BsChat className="post__icon" />
-          <BsArrowRepeat className="post__icon" />
-          <BsHeart className="post__icon" />
-          <BsUpload className="post__icon" />
+          <div className="post__blue">
+            <BsChat className="post__icon " />
+          </div>
+          <div className="post__green">
+            <BsArrowRepeat className="post__icon" />
+          </div>
+          <div className="post__red">
+            <BsHeart className="post__icon" />
+          </div>
+          <div className="post__blue">
+            <BsUpload className="post__icon" />
+          </div>
         </div>
       </div>
     </div>
