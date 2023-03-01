@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { db } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import {
   RiImage2Line,
   RiFileGifLine,
@@ -37,6 +37,7 @@ function MainBox() {
       displayName: "Arnav",
       image: url,
       text: message,
+      timestamp: serverTimestamp(),
       username: "arnavpatel",
       verified: true,
     });
@@ -53,7 +54,7 @@ function MainBox() {
   return (
     <form className="main__box" onSubmit={(event: any) => sendTweet(event)}>
       <div className="main__personal">
-        <img src="https://picsum.photos/128" alt="" className="main__avatar" />
+        <img src="https://picsum.photos/256" alt="" className="main__avatar" />
         <input
           type="text"
           placeholder="What's happening?"

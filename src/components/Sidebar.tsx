@@ -16,6 +16,7 @@ import {
   BsFillBookmarkFill,
   BsPatchCheckFill,
   BsPersonFill,
+  BsPlusCircleFill,
 } from "react-icons/bs";
 import "../App.css";
 
@@ -60,6 +61,7 @@ function Sidebar() {
         />
         <SidebarBox element={BsThreeDots} secondary={BsThreeDots} text="More" />
         <button className="sidebar__tweet">Tweet</button>
+        <BsPlusCircleFill className="sidebar__plus" />
       </nav>
     </div>
   );

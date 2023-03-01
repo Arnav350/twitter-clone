@@ -29,10 +29,11 @@ body {
 
 .app {
   display: flex;
+  justify-content: center;
   max-height: 100vh;
   max-width: 1278px;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 24px 0 10px;
 }
 
 /* sidebar */
@@ -40,6 +41,7 @@ body {
 .sidebar {
   display: flex;
   flex-direction: column;
+  width: 263px;
 }
 
 .sidebar__logo {
@@ -67,7 +69,6 @@ body {
 
 .sidebar__nav {
   margin-top: 4px;
-  width: 263px;
 }
 
 /* sidebarbox */
@@ -113,11 +114,28 @@ body {
   font-weight: 700;
   letter-spacing: 0.04em;
   box-shadow: rgb(0 0 0 / 8%) 0px 8px 28px;
-  cursor: pointer;
+  transition: background-color 200ms;
 }
 
 .sidebar__tweet:hover {
   background-color: #1a8cd8;
+}
+
+.sidebar__plus {
+  display: none;
+  margin-top: 7px;
+  height: 53.6px;
+  width: 53.6px;
+  background-color: #f8f8f8;
+  border: 0.8px solid transparent;
+  color: var(--blue);
+  box-shadow: rgb(0 0 0 / 8%) 0px 8px 28px;
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+.sidebar__plus:hover {
+  color: #1a8cd8;
 }
 
 .sidebar--true .sidebar__text {
@@ -161,7 +179,8 @@ body {
   height: 53px;
 }
 
-.main__option {
+.main__for-you,
+.main__following {
   position: relative;
   display: flex;
   justify-content: center;
@@ -172,7 +191,7 @@ body {
   cursor: pointer;
 }
 
-.main__option::after {
+.main__for-you::after {
   content: '';
   position: absolute;
   bottom: 0.5px;
@@ -182,7 +201,8 @@ body {
   border-radius: 2px;
 }
 
-.main__option:hover {
+.main__for-you:hover,
+.main__following:hover {
   background-color: var(--black-a);
 }
 
@@ -382,7 +402,6 @@ body {
   margin-top: 5px;
   padding: 0 0 0.8px 21px;
   height: 44px;
-  width: 350px;
   background-color: #eff3f4;
   border-radius: 21.2px;
 }
@@ -414,4 +433,42 @@ body {
   font-size: 21px;
   font-weight: 700;
   letter-spacing: 0.03em;
+}
+
+@media (max-width: 1298px) {
+  .app {
+    padding-left: 16px;
+  }
+
+  .sidebar {
+    width: 69px;
+  }
+
+  .sidebar__text {
+    display: none;
+  }
+
+  .sidebar__tweet {
+    display: none;
+  }
+
+  .sidebar__plus {
+    display: block;
+  }
+}
+
+@media (max-width: 1112px) {
+  .widgets {
+    width: 290px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .app {
+    padding-right: 118px;
+  }
+
+  .widgets {
+    display: none;
+  }
 }
