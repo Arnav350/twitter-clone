@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import MainBox from "./MainBox";
 import Post from "./Post";
-import {
-  RiImage2Line,
-  RiFileGifLine,
-  RiListUnordered,
-  RiEmotionHappyLine,
-  RiCalendarEventLine,
-  RiMapPinLine,
-} from "react-icons/ri";
+import { db } from "../firebase";
+import { collection, onSnapshot } from "firebase/firestore";
+
 import "../App.css";
 
 function Main() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const unSub = onSnapshot(collection(db, "posts"), (snapshot: any) => {
+      setPosts(snapshot.docs.map((doc: any) => doc.data()));
+    });
+
+    return () => {
+      unSub();
+    };
+  }, []);
+
   return (
     <div className="main">
       <div className="main__top">
@@ -20,47 +28,18 @@ function Main() {
           <h3 className="main__option">Following</h3>
         </div>
       </div>
-      <div className="main__box">
-        <div className="main__personal">
-          <img src="" alt="" className="main__avatar" />
-          <input
-            type="text"
-            placeholder="What's happening?"
-            className="main__input"
-          />
-        </div>
-        <div className="main__buttons">
-          <div className="main__links">
-            <a href="/" className="main__link">
-              <RiImage2Line className="main__icon" />
-            </a>
-            <a href="/" className="main__link">
-              <RiFileGifLine className="main__icon" />
-            </a>
-            <a href="/" className="main__link">
-              <RiListUnordered className="main__icon" />
-            </a>
-            <a href="/" className="main__link">
-              <RiEmotionHappyLine className="main__icon" />
-            </a>
-            <a href="/" className="main__link">
-              <RiCalendarEventLine className="main__icon" />
-            </a>
-            <a href="/" className="main__link">
-              <RiMapPinLine className="main__icon" />
-            </a>
-          </div>
-          <button className="main__tweet">Tweet</button>
-        </div>
-      </div>
-      <Post
-        avatar="avt"
-        displayName="TechCrunch"
-        blue
-        username="TechCrunch"
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. lelellelelelel l lalladlsalladlasdlsaldlsa"
-        // image="https://picsum.photos/200/300"
-      />
+      <MainBox />
+      {posts.map((post: any, index: number) => (
+        <Post
+          key={index}
+          avatar={post.avatar}
+          displayName={post.displayName}
+          verified={post.verified}
+          username={post.username}
+          text={post.text}
+          image={post.image}
+        />
+      ))}
     </div>
   );
 }

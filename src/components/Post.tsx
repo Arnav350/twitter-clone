@@ -11,7 +11,7 @@ import "../App.css";
 interface IProps {
   avatar: string;
   displayName: string;
-  blue?: boolean;
+  verified: boolean;
   username: string;
   text: string;
   image?: string;
@@ -24,7 +24,7 @@ function Post(props: IProps) {
       <div className="post__body">
         <div className="post__user">
           <h3 className="post__display-name">{props.displayName}</h3>
-          {props.blue && <BsPatchCheckFill className="post__verified" />}
+          {props.verified && <BsPatchCheckFill className="post__verified" />}
           <h4 className="post__username">@{props.username}</h4>
         </div>
         <p className="post__text">{props.text}</p>

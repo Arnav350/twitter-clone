@@ -121,7 +121,7 @@ body {
 }
 
 .sidebar--true .sidebar__text {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* main */
@@ -153,7 +153,7 @@ body {
   height: 53px;
   color: var(--black);
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .main__options {
@@ -203,7 +203,8 @@ body {
 }
 
 .main__input {
-  padding: 14px 0 14px 14px;
+  padding: 14px;
+  width: calc(100% - 48px);
   border: none;
   outline: none;
   font-size: 22px;
@@ -215,6 +216,14 @@ body {
   align-items: flex-end;
   padding-left: 62px;
   height: 48px;
+}
+
+.main__url {
+  display: none;
+  padding-bottom: 8.4px;
+  border: none;
+  outline: none;
+  font-size: 16px;
 }
 
 .main__links {
@@ -229,7 +238,6 @@ body {
   height: 36px;
   width: 36px;
   color: var(--blue);
-  opacity: 0.5;
 }
 
 .main__icon {
@@ -245,7 +253,6 @@ body {
   color: #fff;
   font-size: 16px;
   font-weight: 700;
-  opacity: 0.5;
 }
 
 /* post */
@@ -404,6 +411,7 @@ body {
 .widgets__title {
   padding: 10px 0;
   color: var(--black);
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 700;
+  letter-spacing: 0.03em;
 }
