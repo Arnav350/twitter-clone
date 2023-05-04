@@ -13,11 +13,6 @@ label {
   cursor: pointer;
 }
 
-/* 
-body {
-  overflow: hidden;
-} */
-
 :root {
   --blue: #1d9bf0;
   --blue-a: #1d9bf01a;
@@ -239,7 +234,6 @@ body {
 }
 
 .main__url {
-  display: none;
   padding-bottom: 8.4px;
   border: none;
   outline: none;
@@ -273,6 +267,11 @@ body {
   color: #fff;
   font-size: 16px;
   font-weight: 700;
+  transition: background-color 200ms;
+}
+
+.main__tweet:hover {
+  background-color: #1a8cd8;
 }
 
 /* post */
@@ -328,6 +327,16 @@ body {
   font-weight: 400;
 }
 
+.post__edit {
+  margin-top: 4px;
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  outline: 2px solid var(--border);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
 .post__text {
   color: var(--black);
 }
@@ -349,44 +358,117 @@ body {
 }
 
 .post__blue,
-.post__green,
-.post__red {
+.post__orange,
+.post__red,
+.post__green {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 34.75px;
   width: 34.75px;
+  background-color: transparent;
+  border: none;
   border-radius: 50%;
   transition: background-color 200ms;
+}
+
+.post__icon {
+  color: var(--gray);
+  transition: color 200ms, scale 200ms;
+  scale: 1.2;
+}
+
+.post__icon:active {
+  scale: 1.4;
+}
+
+.post__chat {
+  color: var(--blue);
+}
+
+.post__heart {
+  color: #f91880;
+}
+
+.post__check {
+  color: #00ba7c;
 }
 
 .post__blue:hover {
   background-color: var(--blue-a);
 }
 
-.post__green:hover {
-  background-color: #00ba7c1a;
-}
-
 .post__red:hover {
   background-color: #f918801a;
 }
 
-.post__icon {
-  color: var(--gray);
-  transition: color 200ms;
+.post__orange:hover {
+  background-color: #ffa5001a;
+}
+
+.post__green:hover {
+  background-color: #00ba7c1a;
 }
 
 .post__blue:hover .post__icon {
   color: var(--blue);
 }
 
+.post__red:hover .post__icon {
+  color: #f91880;
+}
+
+.post__orange:hover .post__icon {
+  color: #ffa500;
+}
+
 .post__green:hover .post__icon {
   color: #00ba7c;
 }
 
-.post__red:hover .post__icon {
-  color: #f91880;
+.post__reply {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 8px 0;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+.post__input {
+  margin-bottom: 4px;
+  padding: 8px;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 18px;
+}
+
+.post__tweet {
+  padding: 6px 14px 6px 14px;
+  background-color: var(--blue);
+  border: 0.8px solid transparent;
+  border-radius: 14.8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background-color 200ms;
+}
+
+.post__tweet:hover {
+  background-color: #1a8cd8;
+}
+
+/* reply */
+
+.reply {
+  margin: 8px 0;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+.reply__top {
+  color: var(--gray);
 }
 
 /* widgets */
@@ -433,6 +515,102 @@ body {
   font-size: 21px;
   font-weight: 700;
   letter-spacing: 0.03em;
+}
+
+.widgets__footer {
+  margin-top: 16px;
+  padding: 0 16px;
+}
+
+.widgets__list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.widgets__text {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+/* article */
+
+.article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0;
+  text-decoration: none;
+}
+
+.article__para {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.article__title {
+  padding: 2px 0;
+  color: var(--black);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.article__image {
+  height: 68px;
+  width: 68px;
+  border-radius: 12px;
+}
+
+/* person */
+
+.person {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.person__box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.person__text {
+  width: 120px;
+}
+
+.person__image {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+}
+
+.person__display-name {
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.person__username {
+  color: var(--gray);
+}
+
+.person__follow {
+  padding: 6px 16px;
+  background-color: var(--black);
+  border-radius: 15.2px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background-color 200ms;
+}
+
+.person__follow:hover {
+  background-color: #272c30;
 }
 
 @media (max-width: 1298px) {

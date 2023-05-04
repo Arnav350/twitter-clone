@@ -11,48 +11,39 @@ import {
 } from "react-icons/ri";
 
 function MainBox() {
-  const [message, setMessage] = useState("");
-  const [url, setUrl] = useState("");
+  const [message, setMessage] = useState<string>("");
+  const [url, setUrl] = useState<string>("");
+  const [showUrl, setShowUrl] = useState<boolean>(false);
 
-  function toggleImg(event: any) {
+  function toggleUrl(event: React.MouseEvent<HTMLDivElement>) {
     event.preventDefault();
-    const image = document.querySelector<HTMLInputElement>(".main__url")?.style;
-    const links = document.querySelector<HTMLDivElement>(".main__links")?.style;
-
-    if (image && links) {
-      image.display = "block";
-      links.display = "none";
-    }
+    setShowUrl(true);
   }
 
-  async function sendTweet(event: any) {
-    const image = document.querySelector<HTMLInputElement>(".main__url")?.style;
-    const links = document.querySelector<HTMLDivElement>(".main__links")?.style;
+  async function sendTweet(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setShowUrl(false);
 
     const num = Math.floor(Math.random() * (256 - 64) + 64);
 
     await addDoc(collection(db, "posts"), {
       avatar: `https://picsum.photos/${num}`,
-      displayName: "Arnav",
-      image: url,
-      text: message,
+      ...(url && { image: url }),
+      ...(message && { text: message }),
       timestamp: serverTimestamp(),
-      username: "arnavpatel",
-      verified: true,
+      replies: [],
+      liked: false,
     });
 
     setMessage("");
     setUrl("");
-
-    if (image && links) {
-      image.display = "none";
-      links.display = "flex";
-    }
   }
 
   return (
-    <form className="main__box" onSubmit={(event: any) => sendTweet(event)}>
+    <form
+      className="main__box"
+      onSubmit={(event: React.FormEvent<HTMLFormElement>) => sendTweet(event)}
+    >
       <div className="main__personal">
         <img src="https://picsum.photos/256" alt="" className="main__avatar" />
         <input
@@ -60,7 +51,9 @@ function MainBox() {
           placeholder="What's happening?"
           value={message}
           className="main__input"
-          onChange={(event: any) => setMessage(event.target.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setMessage(event.target.value)
+          }
         />
       </div>
       <div className="main__buttons">
@@ -69,9 +62,18 @@ function MainBox() {
           placeholder="Enter Image URL"
           value={url}
           className="main__url"
-          onChange={(event: any) => setUrl(event.target.value)}
+          style={showUrl ? {} : { display: "none" }}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setUrl(event.target.value)
+          }
         />
-        <div className="main__links" onClick={(event: any) => toggleImg(event)}>
+        <div
+          className="main__links"
+          style={showUrl ? { display: "none" } : {}}
+          onClick={(event: React.MouseEvent<HTMLDivElement>) =>
+            toggleUrl(event)
+          }
+        >
           <a href="/" className="main__link">
             <RiImage2Line className="main__icon" />
           </a>
